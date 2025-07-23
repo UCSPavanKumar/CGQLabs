@@ -1,0 +1,48 @@
+{% extends 'base.html'%}
+
+{% block content %}
+<span class="d-flex justify-content-center align-items-center flex-column">
+<h1>Contact Us</h1>
+<p>If you have any questions or feedback, please fill out the form below:</p>
+</span>
+<div class="container">
+    <form method="post" action="{% url 'submit_contact_form' %}">
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-info" role="alert">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+        {% if form.errors %}
+            <div class="alert alert-danger" role="alert">
+                Please correct the errors below.
+            </div>
+        {% endif %}
+        {% if form.non_field_errors %}
+            <div class="alert alert-danger" role="alert">
+                {{ form.non_field_errors }}
+            </div>
+        {% endif %}
+        {% if form %}
+            <div class="alert alert-warning" role="alert">
+                Please fill out all required fields.
+            </div>
+        {% endif %}
+        {% csrf_token %}
+        <div class="mb-3 flex-column    align-items-center">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" class="form-control w-50" id="name" name="name" required>
+        </div>
+        <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control w-50" id="email" name="email" required>
+        </div>
+        <div class="mb-3">
+        <label for="message" class="form-label">Message</label>
+        <textarea class="form-control w-50" id="message" name="message" rows="3" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+{% endblock %}
