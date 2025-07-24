@@ -4,3 +4,8 @@ html
 {
     font-family: 'Roboto', sans-serif;
 }
+ul
+{
+    list-style-type: none;
+    
+}

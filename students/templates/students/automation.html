@@ -2,7 +2,7 @@
 
 {% block content %}
 {% load static %}
-<div class="container">
+<div class="container p-10">
  <div class="row">
   <div class="col-md-6">
     <img src='{% static "images/automation.jpeg" %}' style="padding:10px" alt="Automation Image" class="img-fluid">
@@ -17,5 +17,15 @@ business goals.</p>
         
   </div>
 </div>
+</div>
+<div class="container mt-5">
+    <h2>Our Automation Services</h2>
+    <ul>
+        <li>Process Automation</li>
+        <li>Robotic Process Automation (RPA)</li>
+        <li>Workflow Automation</li>
+        <li>Custom Automation Solutions</li>
+    </ul>
+    <p>For more information, please contact us or visit our <a href="{% url 'contact_us' %}">Contact Us</a> page.</p>
 </div>
 {% endblock %}  
