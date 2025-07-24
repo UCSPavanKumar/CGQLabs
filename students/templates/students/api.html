@@ -1,7 +1,16 @@
 {% extends 'base.html'%}
 
 {% block content %}
-<h1>API</h1>
-<p>This is the API page.</p>
-<p>Use the following endpoints:</p>
+{% load static %}
+<div class="container">
+ <div class="row">
+  <div class="col-md-6">
+    <img src='{% static "images/api.jpg" %}' alt="API Image" class="img-fluid">
+  </div>
+  <div class="col-md-6">
+    <p>API (Application Programming Interface) is a set of rules and protocols for building and interacting with software applications. It allows different software systems to communicate with each other.</p>
+    <p>Explore our API services to integrate and enhance your applications.</p>
+  </div>
+</div>
+</div>
 {%endblock%}

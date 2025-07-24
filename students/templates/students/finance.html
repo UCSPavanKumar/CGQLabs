@@ -1,5 +1,15 @@
 {% extends 'base.html' %}
 {% block content %}
-<h1>Finance</h1>
-<p>This is the Finance page.</p>
+{%load static%}
+<div class="container">
+ <div class="row">
+  <div class="col-md-6">
+    <img src='{% static "images/finance.jpeg" %}' alt="Finance Image" class="img-fluid">
+  </div>
+  <div class="col-md-6">
+    <p>Finance is the management of large amounts of money, especially by governments or large companies. It is used to increase efficiency, reliability, and speed in various tasks.</p>
+    <p>Explore our finance services to streamline your operations and enhance productivity.</p>
+  </div>
+</div>
+</div>
 {% endblock %}
