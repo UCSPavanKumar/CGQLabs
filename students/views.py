@@ -35,6 +35,13 @@ def contact_us(request):
     """
     return render(request, 'students/contact_us.html')
 
+def management(request):
+    """
+    Management page for the students app
+    This page provides information about management services.
+    """
+    return render(request, 'students/management.html')
+
 def submit_contact_form(request):
     """
     Handle the contact form submission.
