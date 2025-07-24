@@ -27,9 +27,10 @@ class SendMail:
             Sending the email.
         """
         try:
-            with smtplib.SMTP_SSL(self.config['port'], self.config['server'], context=self.context) as server:
-                server.login(self.config['email']['user'], self.config['email']['password'])
-                server.sendmail(self.from_email, self.recipient_list, self.message)
+            server = smtplib.SMTP(self.config['server'], self.config['port'])
+            server.starttls()
+            server.login(self.config['email']['user'], self.config['email']['password'])    
+            server.sendmail(self.from_email, self.recipient_list, f"Subject: {self.subject}\n\n{self.message} ")
             return "Email sent successfully"
         except Exception as e:
             return  f"Error sending email: {e}"

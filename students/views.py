@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from utils import sendmail    
-
+from .models import contact
 def index(request):
     """
     landing page for the students app
@@ -51,11 +51,23 @@ def submit_contact_form(request):
         name = request.POST.get('name')
         email = request.POST.get('email')
         message = request.POST.get('message')
+        #Validate form data
+        if not name or not email or not message:
+            return HttpResponse('All fields are required.', status=400)
+        if '@' not in email or '.' not in email.split('@')[-1]:
+            return HttpResponse('Invalid email address.', status=400)
+        # Process the form data
+        # Here we would typically save the data to a database or send an email
+        # For demonstration, we will use a hypothetical sendmail utility
+        # Assuming sendmail is a utility to send emails
+        contact_entry = contact(name=name, email=email, message=message)
+        contact_entry.save()  # Save the contact entry to the database
+        # Send an email notification
         emailer = sendmail.SendMail(
             subject=f'Contact Form Submission from {name}',
             message=f'Name: {name}\nEmail: {email}\nMessage: {message}',
-            from_email=email,
-            recipient_list=['support@techawake.in']
+            from_email='pavanupadrasta@gmail.com',
+            recipient_list=['pomskipper09@gmail.com','support@techawake.in']
         )
         ret = emailer.send()
         print(ret)
