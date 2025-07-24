@@ -6,6 +6,7 @@
 <p>If you have any questions or feedback, please fill out the form below:</p>
 </span>
 <div class="container">
+    {% load static %}
     <form method="post" action="{% url 'submit_contact_form' %}">
         {% if messages %}
             {% for message in messages %}
@@ -45,4 +46,12 @@
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 </div>
+{% endblock %}
+
+{%block footer%}
+<footer class="text-center text-lg-start bg-light text-muted">
+    <div class="text-center p-4">
+        Contact: +91 1234567890 | Email:support@techawake.in
+    </div>
+</footer>   
 {% endblock %}

@@ -1,0 +1,5 @@
+port: 587
+server: smtp.gmail.com
+email:
+  user: pavanupadrasta@gmail.com
+  password: G@ldWin#1990

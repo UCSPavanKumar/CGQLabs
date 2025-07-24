@@ -1,6 +1,6 @@
 from django.shortcuts import render
-from twilio.rest import Client
 from django.http import HttpResponse
+from utils import sendmail    
 
 def index(request):
     """
@@ -51,7 +51,14 @@ def submit_contact_form(request):
         name = request.POST.get('name')
         email = request.POST.get('email')
         message = request.POST.get('message')
-        
+        emailer = sendmail.SendMail(
+            subject=f'Contact Form Submission from {name}',
+            message=f'Name: {name}\nEmail: {email}\nMessage: {message}',
+            from_email=email,
+            recipient_list=['support@techawake.in']
+        )
+        ret = emailer.send()
+        print(ret)
         # Here you would typically send an email or save the data to a database
         # For demonstration, we will just return a success message
         return render(request, 'students/index.html', {'message': f'Thank you {name}, your message has been received!'})
