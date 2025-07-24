@@ -35,6 +35,12 @@ def contact_us(request):
     """
     return render(request, 'students/contact_us.html')
 
+def cloud_page(request):
+    """
+    Cloud Services page for the students app
+    This page provides information about cloud services offered.
+    """
+    return render(request, 'students/cloud.html')
 def management(request):
     """
     Management page for the students app

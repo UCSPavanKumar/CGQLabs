@@ -1,0 +1,35 @@
+{%extends 'base.html'%}
+
+{%block title%}
+<title>Qerty Labs | Cloud</title>
+{%endblock%}
+{%block content%}
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      {%load static%}
+      <img src='{% static "images/cloud.png" %}' style="padding:10px" alt="Cloud Image" class="img-fluid">
+    </div>
+    <div class="col-md-6">
+      <h1>Our Cloud Services</h1>
+      <p>
+        We offer a range of cloud services designed to meet the needs of businesses of all sizes. Our cloud solutions are scalable, secure, and cost-effective, allowing you to focus on your core business while we handle the infrastructure.
+      </p>
+      <p>
+        Web Deployment, API Development and Cloud Management are just a few of the services we offer to help you leverage the power of the cloud.
+      </p>
+    </div>
+    <div class="container mt-5">
+    <h2>Our Cloud Services</h2>
+    <ul>
+        <li>Cloud DevOps</li>
+        <li>AWS,Azure,GCP Solutions</li>
+        <li>Web Deployment</li>
+        <li>API Development</li>
+        <li>Cloud Management</li>
+        <li>Custom Cloud Solutions</li>
+    </ul>
+    <p>For more information, please contact us or visit our <a href="{% url 'contact_us' %}">Contact Us</a> page.</p>
+</div>
+</div>
+{%endblock%}
